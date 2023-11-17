@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminCotroller;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,5 +46,13 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('/edit/{id}', [UserController::class, 'edit'])->name("admin.user.edit");
         Route::post('/edit/{id}', [UserController::class, 'update'])->name("admin.user.update");
         Route::get('/delete/{id}', [UserController::class, 'destroy'])->name("admin.user.destroy");
+    });
+    Route::group(['prefix' => 'review'], function () {
+        Route::get('/', [ReviewController::class, 'index'])->name("admin.review.index");
+        Route::get('/add', [ReviewController::class, 'create'])->name("admin.review.add");
+        Route::post('/add', [ReviewController::class, 'store'])->name("admin.review.store");
+        Route::get('/edit/{id}', [ReviewController::class, 'edit'])->name("admin.review.edit");
+        Route::post('/edit/{id}', [ReviewController::class, 'update'])->name("admin.review.update");
+        Route::get('/delete/{id}', [ReviewController::class, 'destroy'])->name("admin.review.destroy");
     });
 });
