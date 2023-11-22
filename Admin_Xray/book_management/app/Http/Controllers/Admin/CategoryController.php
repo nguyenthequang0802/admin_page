@@ -13,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('category_parent_id', '=',  0)->with('childs')->get();
+        $categories = Category::where('category_parent_id', '=',  0)->with('childs')->paginate(5);
         return view('admin.content.category.index', ['categories'=>$categories]);
 
     }

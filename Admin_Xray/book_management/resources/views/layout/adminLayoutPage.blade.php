@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>XRay - Responsive Bootstrap 4 Admin Dashboard Template</title>
     @include("partial.head")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body class="sidebar-main-menu">
 <!-- loader Start -->

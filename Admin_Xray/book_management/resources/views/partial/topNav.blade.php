@@ -181,7 +181,7 @@
                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
                         <img src="{{asset('backend/images/user/01.jpg')}}" class="img-fluid rounded mr-3" alt="user">
                         <div class="caption">
-                            <h6 class="mb-0 line-height">Bini Jets</h6>
+                            <h6 class="mb-0 line-height">Nguyen The Quang</h6>
                             <span class="font-size-12">Available</span>
                         </div>
                     </a>
@@ -189,7 +189,7 @@
                         <div class="iq-card shadow-none m-0">
                             <div class="iq-card-body p-0 ">
                                 <div class="bg-primary p-3">
-                                    <h5 class="mb-0 text-white line-height">Hello Bini Jets</h5>
+                                    <h5 class="mb-0 text-white line-height">Hello Nguyen The Quang</h5>
                                     <span class="text-white font-size-12">Available</span>
                                 </div>
                                 <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">

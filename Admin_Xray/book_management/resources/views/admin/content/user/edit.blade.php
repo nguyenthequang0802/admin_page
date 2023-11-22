@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="iq-card-body">
-                <form action="{{route('admin.user.edit', $item->id)}}" method="POST">
+                <form action="{{route('admin.user.update', $item->id)}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="user_name">Tên User:</label>

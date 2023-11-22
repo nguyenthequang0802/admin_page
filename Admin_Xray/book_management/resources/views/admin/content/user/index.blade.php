@@ -6,16 +6,19 @@
                 <div class="iq-header-title">
                     <h4 class="card-title">User</h4>
                 </div>
+                <div>
+                    <span class="table-add float-right mr-2">
+                        <a href="{{route('admin.user.add')}}">
+                            <button class="btn btn-success">
+                                <i class="ri-add-fill"><span class="pl-1">Thêm mới</span></i>
+                            </button>
+                        </a>
+                    </span>
+                </div>
             </div>
             <div class="iq-card-body">
                 <div id="table" class="table-editable">
-                              <span class="table-add float-right mb-3 mr-2">
-                                  <a href="{{route('admin.user.add')}}">
-                                      <button class="btn btn-sm iq-bg-success"><i class="ri-add-fill"><span class="pl-1">Thêm mới</span></i>
-                                      </button>
-                                  </a>
 
-                              </span>
                     <table class="table table-bordered table-responsive-md table-striped ">
                         <thead>
                         <tr>
@@ -31,6 +34,7 @@
                         @include('admin.content.user.row_table', ['users'=>$users, 'level'=>0])
                         </tbody>
                     </table>
+                    <div class="d-flex justify-content-center">{{$users->links('vendor.pagination.tailwind')}}</div>
                 </div>
             </div>
         </div>

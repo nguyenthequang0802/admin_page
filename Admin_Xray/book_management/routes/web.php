@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminCotroller;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
@@ -54,5 +55,11 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('/edit/{id}', [ReviewController::class, 'edit'])->name("admin.review.edit");
         Route::post('/edit/{id}', [ReviewController::class, 'update'])->name("admin.review.update");
         Route::get('/delete/{id}', [ReviewController::class, 'destroy'])->name("admin.review.destroy");
+    });
+    Route::group(['prefix' => 'comment'], function () {
+        Route::get('/', [CommentController::class, 'index'])->name("admin.comment.index");
+        Route::get('/add', [CommentController::class, 'create'])->name("admin.comment.add");
+        Route::post('/add', [CommentController::class, 'store'])->name("admin.comment.store");
+        Route::get('/delete/{id}', [CommentController::class, 'destroy'])->name("admin.comment.destroy");
     });
 });

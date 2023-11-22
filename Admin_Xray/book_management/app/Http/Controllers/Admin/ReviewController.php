@@ -14,7 +14,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews =  Review::all()->sortByDesc('id');
+        $reviews =  Review::orderBy('id', 'Desc')->paginate(5);
         return view('admin.content.review.index', ['reviews'=>$reviews]);
     }
 

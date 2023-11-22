@@ -13,7 +13,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::where('menu_parent_id', '=', 0)->with('childs')->get();
+        $menus = Menu::where('menu_parent_id', '=', 0)->with('childs')->paginate(5);
         return view('admin.content.menu.index', ['menus'=>$menus]);
     }
 

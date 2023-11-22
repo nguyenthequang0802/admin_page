@@ -16,21 +16,21 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Dashboard</span></li>
+                <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Tables</span></li>
                 <li class="active">
-                    <a href="index.html" class="iq-waves-effect"><i class="ri-hospital-fill"></i><span>Doctor Dashboard</span></a>
+                    <a href="{{route('admin.user.index')}}" class="iq-waves-effect"><i class="fa fa-users" aria-hidden="true"></i><span>Table User</span></a>
                 </li>
                 <li>
-                    <a href="dashboard-1.html" class="iq-waves-effect"><i class="ri-home-8-fill"></i><span>Hospital Dashboard 1 </span></a>
+                    <a href="{{route('admin.category.index')}}" class="iq-waves-effect"><i class="ri-home-8-fill"></i><span>Table Category</span></a>
                 </li>
                 <li>
-                    <a href="dashboard-2.html" class="iq-waves-effect"><i class="ri-briefcase-4-fill"></i><span>Hospital Dashboard 2</span></a>
+                    <a href="{{route('admin.comment.index')}}" class="iq-waves-effect"><i class="fa-solid fa-comments"></i><span>Table Comment</span></a>
                 </li>
                 <li>
-                    <a href="dashboard-3.html" class="iq-waves-effect"><i class="ri-group-fill"></i><span>Patient Dashboard</span></a>
+                    <a href="{{route('admin.menu.index')}}" class="iq-waves-effect"><i class="ri-group-fill"></i><span>Table Menu</span></a>
                 </li>
                 <li>
-                    <a href="dashboard-4.html" class="iq-waves-effect"><i class="lab la-mendeley"></i><span>Covid-19 Dashboard</span><span class="badge badge-danger">New</span></a>
+                    <a href="{{route('admin.review.index')}}" class="iq-waves-effect"><i class="ri-group-fill"></i><span>Table Review</span></a>
                 </li>
                 <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li>
                 <li>
