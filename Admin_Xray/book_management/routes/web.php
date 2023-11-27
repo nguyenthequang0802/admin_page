@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +24,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/admin', [AdminCotroller::class, 'index'])->name('admin.homepage');
-Route::group(['prefix' => 'admin'], function (){
+Route::get('admin/login', [LoginController::class, 'showAdminLoginForm'])->name('admin.auth.login');
+Route::post('admin/login', [LoginController::class, 'adminLogin'])->name('admin.auth.login.store');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function (){
+    Route::get('/', [AdminCotroller::class, 'index'])->name('admin.homepage');
+    Route::get('/register', [RegisterController::class, 'showAdminRegistrationForm'])->name('admin.auth.register');
+    Route::post('/register', [RegisterController::class, 'storeAdminAccount'])->name('admin.auth.register.store');
+
+
     Route::group(['prefix' => 'menu'], function () {
         Route::get('/', [MenuController::class, 'index'])->name("admin.menu.index");
         Route::get('/add', [MenuController::class, 'create'])->name("admin.menu.add");
@@ -63,3 +72,7 @@ Route::group(['prefix' => 'admin'], function (){
         Route::get('/delete/{id}', [CommentController::class, 'destroy'])->name("admin.comment.destroy");
     });
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
