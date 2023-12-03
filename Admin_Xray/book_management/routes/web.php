@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,4 +77,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function (){
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/tinymce', function () {
+    return view('tinymce');
+});
+Route::get('/add', [PostController::class, 'add'])->name("post.add");
+Route::post('/add', [PostController::class, 'store'])->name("post.store");
+Route::get('/show/{id}', [PostController::class, 'show'])->name("post.show");
+Route::get('/edit/{id}', [PostController::class, 'edit'])->name("post.edit");
+Route::post('/edit/{id}', [PostController::class, 'update'])->name("post.update");
+
+
+Route::get('/media', [HomeController::class, 'media']);
