@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="review_content">Content:</label>
-                        <input type="text" class="form-control" id="review_content" name="reviewContent" value="{{$item->content}}">
+                        <textarea class="tinyMce" id="review_content" name="reviewContent">{!! $item->content !!}</textarea>
                     </div>
                     <div class="form-group">
                         <label for="user_id">User Id:</label>

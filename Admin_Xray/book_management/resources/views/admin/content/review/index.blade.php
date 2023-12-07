@@ -8,7 +8,7 @@
                 </div>
                 <div>
                     <span class="table-add float-right mr-2">
-                        <a href="{{route('admin.user.add')}}">
+                        <a href="{{route('admin.review.add')}}">
                             <button class="btn btn-success">
                                 <i class="ri-add-fill"><span class="pl-1">Thêm mới</span></i>
                             </button>

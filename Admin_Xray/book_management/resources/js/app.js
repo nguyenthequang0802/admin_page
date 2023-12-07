@@ -9,9 +9,8 @@ import 'tinymce/models/dom/model';
 
 window.addEventListener('DOMContentLoaded', () => {
     tinymce.init({
-        selector: 'textarea',
-        width: 1200,
-        height: 600,
+        selector: 'textarea#review_content',
+        height:500,
         plugins: [
             'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
             'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code', 'fullscreen', 'insertdatetime',
@@ -35,10 +34,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 width : x * 0.8,
                 height : y * 0.8,
                 onMessage: (api, message) => {
+                    console.log(message)
+                    let url = message.content;  // Lấy ra url của file ảnh
+                    url = url.replace(/^.*\/\/[^\/]+/, ''); // Xóa domain ảnh
+                    message.content = url // Gán lại url cho ảnh
                     callback(message.content, { text: message.text })
-                }
-            })
-        }
-    });
+                },
 
+            })}
+    });
 });

@@ -7,8 +7,11 @@
     <title>XRay - Responsive Bootstrap 4 Admin Dashboard Template</title>
     @include("partial.head")
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{{--    <meta name="viewport" content="width=device-width, initial-scale=1">--}}
+    @vite(['resources/js/app.js'])
+    <script src="https://cdn.tiny.cloud/1/3x75cpz6idiupug405bkyqg360eoi2ls7jjr5fwkk8zpkxhv/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
-<body class="sidebar-main-menu">
+<body class="sidebar-main-menu" style="margin: 0">
 <!-- loader Start -->
 <div id="loading">
     <div id="loading-center">
