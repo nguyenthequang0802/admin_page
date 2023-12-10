@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/book_management/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/book_management/tests/Feature" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/book_management/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/book_management/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/dflydev/dot-access-data" />
@@ -120,6 +121,10 @@
       <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/laravel/ui" />
+      <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/alexusmai/laravel-file-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/intervention/image" />
+      <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/intervention/imagecache" />
+      <excludeFolder url="file://$MODULE_DIR$/book_management/vendor/opis/closure" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

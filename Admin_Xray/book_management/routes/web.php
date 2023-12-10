@@ -89,3 +89,5 @@ Route::post('/edit/{id}', [PostController::class, 'update'])->name("post.update"
 
 
 Route::get('/media', [HomeController::class, 'media']);
+Route::get('/book', [HomeController::class, 'showBook']);
+Route::get('/order/{id}', [HomeController::class, 'order']);

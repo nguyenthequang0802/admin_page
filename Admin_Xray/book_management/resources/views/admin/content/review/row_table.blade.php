@@ -4,7 +4,7 @@
         <td>{{str_repeat("----", $level)}}  {{$review->category_id}}</td>
         <td>{{$review->name}}</td>
         <td>{{$review->description}}</td>
-        <td>{{$review->content}}</td>
+        <td>{!! $review->content !!}</td>
         <td>{{$review->user_id}}</td>
 
         <td>
