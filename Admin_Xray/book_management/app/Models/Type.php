@@ -9,6 +9,6 @@ class Type extends Model
 {
     use HasFactory;
     public function book(){
-        return $this->hasOne(Book::class, 'type_id', 'id');
+        return $this->hasMany(Book::class, 'type_id', 'id');
     }
 }

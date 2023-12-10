@@ -18,7 +18,7 @@
         <tbody>
             @foreach($books as $book)
                 <tr>
-                    <td>{{$book->id}}</td>
+                    <td>{{$loop->index}}</td>
                     <td>{{$book->name}}</td>
                     <td>{{$book->author}}</td>
                     <td>{{$book->type->name}}</td>
