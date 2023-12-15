@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SeoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,13 +82,30 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/tinymce', function () {
     return view('tinymce');
 });
-Route::get('/add', [PostController::class, 'add'])->name("post.add");
-Route::post('/add', [PostController::class, 'store'])->name("post.store");
-Route::get('/show/{id}', [PostController::class, 'show'])->name("post.show");
-Route::get('/edit/{id}', [PostController::class, 'edit'])->name("post.edit");
-Route::post('/edit/{id}', [PostController::class, 'update'])->name("post.update");
+//Route::get('/add', [PostController::class, 'add'])->name("post.add");
+//Route::post('/add', [PostController::class, 'store'])->name("post.store");
+//Route::get('/show/{id}', [PostController::class, 'show'])->name("post.show");
+//Route::get('/edit/{id}', [PostController::class, 'edit'])->name("post.edit");
+//Route::post('/edit/{id}', [PostController::class, 'update'])->name("post.update");
 
 
 Route::get('/media', [HomeController::class, 'media']);
 Route::get('/book', [HomeController::class, 'showBook']);
 Route::get('/order/{id}', [HomeController::class, 'order']);
+
+
+Route::group(['prefix' => 'post'], function () {
+    Route::get('/', [PostController::class, 'index'])->name("post.index");
+    Route::get('/add', [PostController::class, 'add'])->name("post.add");
+    Route::post('/add', [PostController::class, 'store'])->name("post.store");
+    Route::get('/show/{id}', [PostController::class, 'show'])->name("post.show");
+    Route::get('/edit/{id}', [PostController::class, 'edit'])->name("post.edit");
+    Route::post('/edit/{id}', [PostController::class, 'update'])->name("post.update");
+    Route::get('/delete/{id}', [PostController::class, 'destroy'])->name("post.destroy");
+});
+
+Route::group(['prefix' => 'seo'], function () {
+    Route::get('/', [SeoController::class, 'index'])->name("seo.index");
+//    Route::get('/delete/{id}', [SeoController::class, 'destroy'])->name("seo.destroy");
+});
+

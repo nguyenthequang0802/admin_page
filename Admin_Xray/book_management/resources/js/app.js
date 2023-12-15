@@ -9,7 +9,7 @@ import 'tinymce/models/dom/model';
 
 window.addEventListener('DOMContentLoaded', () => {
     tinymce.init({
-        selector: 'textarea#review_content',
+        selector: 'textarea',
         height:500,
         plugins: [
             'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
