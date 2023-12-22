@@ -32,63 +32,27 @@
                     <tbody>
                         @foreach($posts as $post)
                             <tr>
-                                <th scope="row">{{$post->id}}</th>
+                                <th scope="row">{{($posts->currentPage()-1)*$posts->perPage()+$loop->index+1}}</th>
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->slug}}</td>
                                 <td>{{$post->description}}</td>
-                                <td>{{$post->image}}</td>
-                                <td>{{$post->content}}</td>
+                                <td><img src="{{$post->image}}" style="height: 450px; width: 350px"></td>
+                                <td>{!! $post->content !!}</td>
                                 <td>
                                     <a href="{{route("post.edit", $post->id)}}">
                                         <button type="button" class="btn btn-warning mb-3">
                                             <i class="fa-regular fa-pen-to-square" style="margin: 0"></i>
                                         </button>
                                     </a>
-                                    <a href="{{route("post.show", $post->id)}}">
-                                        <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#exampleModalCenter">
-                                            <i class="fa-solid fa-eye" style="margin: 0"></i>
-                                        </button>
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">{{ $post->title }}</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <table class="table">
-                                                            <thead>
-                                                            <tr>
-                                                                <th scope="col">#</th>
-                                                                <th scope="col">title</th>
-                                                                <th scope="col">slug</th>
-                                                                <th scope="col">description</th>
-                                                                <th scope="col">image</th>
-                                                                <th scope="col">content</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
+                                    <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#post-{{$post->id}}">
+                                        <i class="fa-solid fa-eye" style="margin: 0"></i>
 
-                                                            <tr>
-                                                                <th scope="row">{{$show_post->id}}</th>
-                                                                <td>{{$show_post->title}}</td>
-                                                                <td>{{$show_post->slug}}</td>
-                                                                <td>{{$show_post->description}}</td>
-                                                                <td>{{$show_post->image}}</td>
-                                                                <td>{{$show_post->content}}</td>
-                                                            </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+                                    </button>
+                                    @include ("Post.post_modal")
+                                    <button type="button" class="btn btn-secondary mb-3" data-toggle="modal" data-target="#seo-{{$post->seo->id}}">
+                                        <i class="fa-regular fa-note-sticky" style="margin: 0"></i>
+                                    </button>
+                                    @include ("Post.seo_modal")
                                     <a href="{{route("post.destroy", $post->id)}}"
                                        onclick="return confirm('Bạn có muốn xóa không?');" >
                                         <button type="button" class="btn btn-danger mb-3">
@@ -102,5 +66,6 @@
                 </table>
             </div>
         </div>
+        <div class="d-flex justify-content-center mb-3.5">{{$posts->links('vendor.pagination.tailwind')}}</div>
     </div>
 @endsection

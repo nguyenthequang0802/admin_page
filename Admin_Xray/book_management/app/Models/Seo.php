@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Seo extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'post_id';
     public function posts(){
         return $this->belongsTo(Post::class, 'post_id', 'id');
     }

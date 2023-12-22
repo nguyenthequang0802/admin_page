@@ -26,7 +26,32 @@
                             </div>
                             <div class="form-group">
                                 <label for="image">Image</label>
-                                <input type="text" class="form-control" id="image" name="post_image">
+                                <div class="input-group">
+                                    <input type="text" id="image_label" class="form-control" name="post_image"
+                                           aria-label="Image" aria-describedby="button-image">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-image">Select</button>
+                                    </div>
+                                </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+
+                                        document.getElementById('button-image').addEventListener('click', (event) => {
+                                            event.preventDefault();
+
+                                            window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
+                                        });
+                                    });
+
+                                    // set file link
+                                    function fmSetLink(url) {
+                                        //console.log(url)
+                                        url = url.replace(/^.*\/\/[^\/]+/, ''); // remove domain
+                                        console.log(url)
+                                        document.getElementById('image_label').value = url;
+                                        document.getElementById("icon_preview").src = url;
+                                    }
+                                </script>
                             </div>
                         </div>
 
@@ -56,3 +81,4 @@
         </div>
     </div>
 @endsection
+

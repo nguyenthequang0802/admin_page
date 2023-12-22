@@ -104,8 +104,3 @@ Route::group(['prefix' => 'post'], function () {
     Route::get('/delete/{id}', [PostController::class, 'destroy'])->name("post.destroy");
 });
 
-Route::group(['prefix' => 'seo'], function () {
-    Route::get('/', [SeoController::class, 'index'])->name("seo.index");
-//    Route::get('/delete/{id}', [SeoController::class, 'destroy'])->name("seo.destroy");
-});
-

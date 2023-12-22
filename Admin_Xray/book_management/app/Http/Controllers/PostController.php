@@ -8,8 +8,22 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    private function fillDataPost($item, $input){
+        $item['title'] = $input['post_title'];
+        $item['slug'] = $input['post_slug'] ?? Str::slug($item['title']);
+        $item['description'] = $input['post_description'];
+        $item['image'] = $input['post_image'];
+        $item['content'] = $input['content'];
+        return $item;
+    }
+    private function fillDataSeo($item, $input){
+        $item['seo_title'] = $input['seo_title'];
+        $item['seo_keywords'] = $input['seo_keywords'];
+        $item['seo_description'] = $input['seo_description'];
+        return $item;
+    }
     public function index(){
-        $posts = Post::all();
+        $posts = Post::paginate(1);
         return view('Post.index', ['posts' => $posts]);
     }
 
@@ -20,28 +34,22 @@ class PostController extends Controller
     public function store(Request $request){
         $input = $request->all();
         $post_item = new Post();
-        $post_item->title = $input['post_title'];
-        $post_item->slug = $input['post_slug'];
-        $post_item->description = $input['post_description'];
-        $post_item->image = $input['post_image'];
-        $post_item->content = $input['content'];
+//        $post_item->title = $input['post_title'];
+//        $post_item->slug = $input['post_slug'];
+//        $post_item->description = $input['post_description'];
+//        $post_item->image = $input['post_image'];
+//        $post_item->content = $input['content'];
+        $post_item = $this->fillDataPost($post_item, $input);
         $post_item->save();
 
         $seo_item = new Seo();
-        $seo_item->seo_title = $input['seo_title'];
-        $seo_item->seo_keywords = $input['seo_keywords'];
-        $seo_item->seo_description = $input['seo_description'];
+//        $seo_item->seo_title = $input['seo_title'];
+//        $seo_item->seo_keywords = $input['seo_keywords'];
+//        $seo_item->seo_description = $input['seo_description'];
+        $seo_item = $this->fillDataSeo($seo_item, $input);
         $seo_item->post_id = $post_item->id;
         $seo_item->save();
         return redirect()->route('post.index');
-    }
-    public function show($id){
-        $item = Post::find($id);
-        echo "<pre>";
-        print_r($item);
-        echo "</pre>";
-        exit;
-//        return view('Post.index', ["show_post"=>$item]);
     }
 
     public function edit($id){
@@ -52,17 +60,19 @@ class PostController extends Controller
     public function update(Request $request, $id){
         $input = $request->all();
         $post_item = Post::find($id);
-        $post_item->title = $input['post_title'];
-        $post_item->slug = $input['post_slug'];
-        $post_item->description = $input['post_description'];
-        $post_item->image = $input['post_image'];
-        $post_item->content = $input['content'];
+//        $post_item->title = $input['post_title'];
+//        $post_item->slug = $input['post_slug'];
+//        $post_item->description = $input['post_description'];
+//        $post_item->image = $input['post_image'];
+//        $post_item->content = $input['content'];
+        $post_item = $this->fillDataPost($post_item, $input);
         $post_item->save();
 
         $seo_item = Seo::find($id);
-        $seo_item->seo_title = $input['seo_title'];
-        $seo_item->seo_keywords = $input['seo_keywords'];
-        $seo_item->seo_description = $input['seo_description'];
+//        $seo_item->seo_title = $input['seo_title'];
+//        $seo_item->seo_keywords = $input['seo_keywords'];
+//        $seo_item->seo_description = $input['seo_description'];
+        $seo_item = $this->fillDataSeo($seo_item, $input);
         $seo_item->post_id = $post_item->id;
         $seo_item->save();
         return redirect()->route('post.index');
